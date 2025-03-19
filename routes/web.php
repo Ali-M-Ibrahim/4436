@@ -7,7 +7,7 @@ use App\Http\Controllers\ApiController;
 
 use App\Http\Controllers\InvokableController;
 
-
+use App\Http\Controllers\DataController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -110,3 +110,65 @@ Route::apiResource('my-api',ApiController::class);
 
 //to create a invokable route for the controller
 Route::get('invoke',InvokableController::class);
+
+
+
+
+
+
+
+
+Route::get("create-data",[DataController::class,'create']);
+Route::get("getCustomerById/{id}",[DataController::class,'getCustomerById']);
+Route::get("getCredentialsById/{id}",[DataController::class,'getCredentialsById']);
+Route::get("create-data2",[DataController::class,'create2']);
+Route::get("getAccountById/{id}",[DataController::class,'getAccountById']);
+Route::get("create-data3",[DataController::class,'create3']);
+Route::get("getServiceById/{id}",[DataController::class,'getServiceById']);
+
+Route::get("getAllCustomers",[DataController::class,'getAllCustomers']);
+Route::get("getCustomerByIdOrFail/{id}",[DataController::class,'getCustomerByIdOrFail']);
+Route::get("getCustomerByIdOr/{id}",[DataController::class,'getCustomerByIdOr']);
+Route::get("getCustomersByAddress/{address}",[DataController::class,'getCustomersByAddress']);
+Route::get("getCustomersByAddressFirst/{address}",[DataController::class,'getCustomersByAddressFirst']);
+Route::get("getCustomerByConditions",[DataController::class,'getCustomerByConditions']);
+Route::get("getCustomerByConditionsOr",[DataController::class,'getCustomerByConditionsOr']);
+Route::get("getCustomerIn",[DataController::class,'getCustomerIn']);
+Route::get("getCustomerBetween",[DataController::class,'getCustomerBetween']);
+Route::get("getCustomerByNameLike",[DataController::class,'getCustomerByNameLike']);
+Route::get("getCustomerByAddressIn",[DataController::class,'getCustomerByAddressIn']);
+Route::get("getAllCustomerswithlimit",[DataController::class,'getAllCustomerswithlimit']);
+Route::get("getNameCustomers",[DataController::class,'getNameCustomers']);
+Route::get("getCustomersOderByDob",[DataController::class,'getCustomersOderByDob']);
+Route::get("mix",[DataController::class,'mix']);
+Route::get("statistics",[DataController::class,'Statistics']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
