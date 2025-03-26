@@ -14,7 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: [
             'post',
             'put',
-            'delete'
+            'delete',
+            "create-m3",
+            "create-m4",
+            "update-m2/*",
+            "update-m3/*"
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
