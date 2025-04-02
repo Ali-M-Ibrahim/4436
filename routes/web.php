@@ -12,6 +12,11 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\FrontController;
 
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemResourceController;
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -168,14 +173,22 @@ Route::get("second-page",[FrontController::class,"index2"]);
 Route::get("customer-page",[FrontController::class,"dbData"]);
 Route::get("list-page",[FrontController::class,"ArrayData"]);
 
+Route::get("page1",[FrontController::class,"page1"]);
+Route::get("page2",[FrontController::class,"page2"]);
 
 
 
+Route::get("listItems",[ItemController::class,"list"])->name("list-items");
+Route::get("createItem",[ItemController::class,"create"])->name("create-item");
+Route::post("storeItem",[ItemController::class,"store"])->name("store-item");
+Route::delete("deleteItem/{id}",[ItemController::class,"delete"])->name("delete-item");
+Route::get("deleteItem2/{id}",[ItemController::class,"delete"])->name("delete-item2");
+Route::get("editItem/{id}",[ItemController::class,"Edit"])->name("edit-item");
+Route::put("updateItem/{id}",[ItemController::class,"update"])->name("update-item");
 
 
 
-
-
+Route::resource("myitem",ItemResourceController::class);
 
 
 

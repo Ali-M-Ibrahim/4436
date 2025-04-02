@@ -56,4 +56,12 @@ class FrontController extends Controller
         $data = Customer::all();
         return View("ListView")->with("data",$data);
     }
+
+    public function page1(){
+        return View("Page1");
+    }
+
+    public function page2(){
+        return View("Page2");
+    }
 }
