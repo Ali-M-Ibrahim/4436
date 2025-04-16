@@ -15,6 +15,12 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemResourceController;
 
+use App\Http\Controllers\ImageController;
+
+use App\Http\Controllers\WebsiteController;
+
+
+
 
 
 
@@ -190,6 +196,11 @@ Route::put("updateItem/{id}",[ItemController::class,"update"])->name("update-ite
 
 Route::resource("myitem",ItemResourceController::class);
 
+Route::get("add-image",[ImageController::class,'create']);
+Route::post("save-image",[ImageController::class,'store'])->name("store-image");
+Route::get("view-image/{id}",[ImageController::class,'display']);
+Route::get("about",[WebsiteController::class,"about"]);
+Route::get("contact",[WebsiteController::class,"contact"]);
 
 
 
