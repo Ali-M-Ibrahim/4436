@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
-class ItemController extends Controller
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+class ItemController extends Controller implements HasMiddleware
 {
+    /**
+     * Get the middleware that should be assigned to the controller.
+     */
+    public static function middleware(): array
+    {
+        return [
+            'checkIfAuthenticated',
+        ];
+    }
+
     public function list(){
 //        $hashed =  Hash::make("123");
 //        $result = Hash::check("1233",$hashed);

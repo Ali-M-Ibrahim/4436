@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
@@ -202,11 +203,28 @@ Route::get("view-image/{id}",[ImageController::class,'display']);
 Route::get("about",[WebsiteController::class,"about"]);
 Route::get("contact",[WebsiteController::class,"contact"]);
 
+Route::get("createUser",[AuthController::class,"Register"]);
+Route::get("login",[AuthController::class,"Login"]);
+Route::post("check",[AuthController::class,"Check"])->name("check");
+
+Route::get("Userview",[AuthController::class,"Userview"])->name("Userview");
+
+Route::get("logout",[AuthController::class,"logout"]);
+
+Route::get("onlyUsers",function(){
+    return "ok done";
+})->middleware("checkIfAuthenticated");
 
 
+Route::middleware(['checkIfAuthenticated'])->group(function () {
+    Route::get('onlyUsers2', function () {
+        return "ok done";
+    });
 
-
-
+    Route::get('onlyUsers3', function () {
+        return "ok done";
+    });
+});
 
 
 

@@ -11,6 +11,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([
+            'checkIfAuthenticated' => \App\Http\Middleware\CheckAuthentication::class
+        ]);
+
+        //global middleware
+//        $middleware->append(\App\Http\Middleware\CheckAuthentication::class);
+
+
+
         $middleware->validateCsrfTokens(except: [
             'post',
             'put',
