@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DIController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
@@ -228,8 +229,10 @@ Route::middleware(['checkIfAuthenticated'])->group(function () {
 
 
 
-
-
+Route::get("before-di",[DIController::class,'before']);
+Route::get("di-method",[DIController::class,'DIMethod']);
+Route::get("di-constructor1",[DIController::class,'DIC1']);
+Route::get("di-constructor2",[DIController::class,'DIC2']);
 
 
 
